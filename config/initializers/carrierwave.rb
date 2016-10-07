@@ -1,5 +1,5 @@
 # config/initializers/carrierwave.rb
-
+if Rails.env.production?
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider               => 'AWS',                        # required
@@ -9,4 +9,5 @@ CarrierWave.configure do |config|
   }
   config.fog_directory  = ENV["AWS_BUCKET"]                     # required
 
+end
 end
